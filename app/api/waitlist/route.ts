@@ -1,8 +1,8 @@
 import { createClient } from "@/lib/supabase/server"
-import { Resend } from "resend"
+//import { Resend } from "resend"
 import { NextResponse } from "next/server"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+//const resend = new Resend(process.env.RESEND_API_KEY)
 
 const customerEmailTemplate = (name: string) => `
 Thank you for joining gaur.haus.
@@ -70,7 +70,7 @@ export async function POST(request: Request) {
     console.log("[v0] Supabase insert success, sending email...")
 
     // Send confirmation email
-    const emailTemplate =
+    /*const emailTemplate =
       userType === "designer"
         ? designerEmailTemplate(fullName)
         : customerEmailTemplate(fullName)
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
     } catch (emailError) {
       console.log("[v0] Email send error:", emailError)
     }
-
+*/
     return NextResponse.json({ success: true })
   } catch (error) {
     console.log("[v0] API error:", error)
